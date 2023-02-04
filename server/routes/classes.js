@@ -6,11 +6,16 @@ const classesController = require('../controllers/classes');
 
 // Define routes for classes
 
-// Get all classes
-router.get('/', classesController.getAllClasses);
+router.get('/', (req, res) => {
+    // Get all classes
+    classesController.getAllClasses
+});
 
-// Get a specific class by ID
-router.get('/:id', classesController.getClassById);
+
+router.get('/:id', () => {
+    // Get a specific class by ID
+    classesController.getClassById
+});
 
 // Create a new class
 router.post('/', classesController.createClass);

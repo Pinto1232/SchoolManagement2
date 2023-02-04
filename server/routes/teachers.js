@@ -2,21 +2,30 @@ const express = require("express");
 const router = express.Router();
 
 // Import the teacher controller
-const teachersController = require("../controllers/teachers");
+const teacherController = require("../controllers/teachers");
 
-// Get all teachers route
-router.get("/", teachersController.getAllTeachers);
+// Get all teachers
+/* router.get("/", teacherController.getAllTeachers); */
 
-// Get a single teacher by id route
-router.get("/:id", teachersController.getTeacherById);
+router.get('/', (req, res) => {
+    // Code to retrieve all teachers from database
+    res.send("Hello world")
+    teacherController.getAllTeachers
+});
 
-// Create a new teacher route
-router.post("/", teachersController.createTeacher);
 
-// Update an existing teacher route
-router.put("/:id", teachersController.updateTeacher);
+router.get('/:id', (req, res) => {
+    // Get a single teacher by ID
+    teacherController.getTeacherById
+});
 
-// Delete a teacher route
-router.delete("/:id", teachersController.deleteTeacher);
+// Add a new teacher
+router.post("/", teacherController.addTeacher);
+
+// Update a teacher
+router.put("/:id", teacherController.updateTeacher);
+
+// Delete a teacher
+router.delete("/:id", teacherController.deleteTeacher);
 
 module.exports = router;

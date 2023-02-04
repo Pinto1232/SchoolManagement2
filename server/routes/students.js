@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const studentsController = require('../controllers/students');
 
-// Route for creating a new student
-router.post('/', studentsController.createStudent);
+router.get('/', (req, res) => {
+    // Code to retrieve all students from database
+    studentsController.createStudent
+});
 
-// Route for retrieving information about a student by ID
-router.get('/:id', studentsController.getStudentById);
+router.get('/:id', (req, res) => {
+    // Get a single student by ID
+    studentsController.getStudentById
+});
 
 // Route for updating information about a student by ID
 router.put('/:id', studentsController.updateStudent);
